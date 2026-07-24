@@ -1,0 +1,45 @@
+# Site settings
+title: "Backend Mastery"
+description: "From Junior to Top 1% Backend Engineer — A deliberate-practice program"
+baseurl: "/backend_guide"
+url: "https://Bhaveshpetkar3.github.io"
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+
+# Collections for future expandability
+collections:
+  guides:
+    output: true
+    permalink: /guides/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
+
+# Exclude files from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - _build_roadmap.py
+  - backend-mastery-roadmap.md
