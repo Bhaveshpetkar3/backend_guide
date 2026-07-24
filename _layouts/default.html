@@ -8,61 +8,52 @@
 
   {% seo %}
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
-  <!-- Ambient background glow -->
-  <div class="ambient-glow"></div>
 
-  <!-- Header -->
+  <!-- Top Navigation Bar -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="{{ '/' | relative_url }}" class="logo">
-        <span class="logo-icon">⚡</span>
-        <span class="logo-text">{{ site.title }}</span>
+      <a href="{{ '/' | relative_url }}" class="brand">
+        backend mastery
+        <span class="brand-tag">v1.0</span>
       </a>
-      <nav class="header-nav">
-        <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">Home</a>
-        <a href="{{ '/roadmap/' | relative_url }}" class="nav-link {% if page.url contains 'roadmap' %}active{% endif %}">Roadmap</a>
-        {% for guide in site.guides %}
-          <a href="{{ guide.url | relative_url }}" class="nav-link {% if page.url == guide.url %}active{% endif %}">{{ guide.nav_title | default: guide.title }}</a>
-        {% endfor %}
-      </nav>
-      <div class="header-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
-          <span></span><span></span><span></span>
+
+      <div class="header-right">
+        <nav class="nav-links">
+          <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">Home</a>
+          <a href="{{ '/roadmap/' | relative_url }}" class="nav-link {% if page.url contains 'roadmap' %}active{% endif %}">Roadmap</a>
+          {% for guide in site.guides %}
+            <a href="{{ guide.url | relative_url }}" class="nav-link {% if page.url == guide.url %}active{% endif %}">{{ guide.nav_title | default: guide.title }}</a>
+          {% endfor %}
+        </nav>
+
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle dark/light mode">
+          <span class="theme-icon">☀️</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile sidebar -->
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-
-  <!-- Main content -->
+  <!-- Main Content -->
   <main class="site-main">
-    {{ content }}
+    <div class="container">
+      {{ content }}
+    </div>
   </main>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="logo-icon">⚡</span>
-        <span>{{ site.title }}</span>
-      </div>
-      <p class="footer-text">A deliberate-practice program for backend engineers.</p>
-      <div class="footer-links">
-        <a href="https://github.com/Bhaveshpetkar3/backend_guide" target="_blank" rel="noopener">GitHub</a>
+      <div>backend mastery — deliberate practice program</div>
+      <div>
+        <a href="https://github.com/Bhaveshpetkar3/backend_guide" target="_blank" rel="noopener">github repo</a>
       </div>
     </div>
   </footer>
